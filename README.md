@@ -1,3 +1,4 @@
+# Finding Prime Numbers
 This repository contains scripts that allows one to find prime numbers using Python. Please note that Python is NOT fully optimized for dealing with large numbers.
 
 This script finds the first 1000 prime numbers. A prime number is a number that is only divisible by 1 and itself. Examples include 1, 2, 3, 5, 7, 11, 13, ...
