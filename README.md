@@ -24,4 +24,4 @@ Example:
         2   *   3
 Therefore, 36 = 2 * 3 * 2 * 3. This means that when testing for prime numbers, the testNumber only needs to be divided by the prime numbers up to it except for 1, 2, and possibly itself. This drastically improves efficiency.
 
-Since 2 was ruled out, the prime number that the testNumber is divided by must be less than half of the testNumber. This works because 2 has already been ruled out, fractions can not be used, and an exception for 1 has been created since all real numbers are divisible by 1. *This has not been implemented yet, but it is on my agenda.*
+Since 2 was ruled out, the prime number that the testNumber is divided by must be less than half of the testNumber. This works because 2 has already been ruled out, fractions can not be used, and an exception for 1 has been created since all real numbers are divisible by 1. *This has not been implemented yet, but it is on my agenda. This will be saved under logicPart5.py before I merge it into findingPrimes.py*
