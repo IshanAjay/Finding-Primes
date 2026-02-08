@@ -4,8 +4,8 @@ PARENT_LIST = [3, 5]
 testnumber = 7
 
 
-i = 0
-while len(PARENT_LIST) < 999:
+i = 1
+while len(PARENT_LIST) < 1000:
     TEST_LIST = []
     n = 0
     while n < len(PARENT_LIST):
