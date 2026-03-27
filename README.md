@@ -1,27 +1,25 @@
 # Finding Prime Numbers
-This repository contains scripts that allows one to find prime numbers using Python. Please note that Python is NOT fully optimized for dealing with large numbers.
 
-This script finds the first 1000 prime numbers. A prime number is a number that is only divisible by 1 and itself. Examples include 1, 2, 3, 5, 7, 11, 13, ...
-My goal is to find the largest prime number. Currently, the largest prime is Mersenne52. I don't have the memory resources to find the absolute largest prime number, however I wanted to at least figure out the logic. This big focus in this experiment is efficiency.
+This repository contains scripts that allow you to find prime numbers using Python. Please note that Python is NOT fully optimized for dealing with large numbers.
 
-*Testing means to divide the testNumber by a series of numbers. (i.e. 100/2, 100/3, 100/4, ...)*
-*If the remainder is 0, then it is divisible by that number, else it is not.*
-*If the testNumber is divided by a number that excludes 1 and itself and has a remainder of 0, it is composite.*
-*Else, it is prime.*
+A prime number is a number that is only divisible by 1 and itself. Examples include 2, 3, 5, 7, 11, 13...
 
-*assume numbers refers to real, positive numbers only*
+My goal is to find the largest prime number. The largest known prime is a Mersenne prime. I don't have the memory resources to find the absolute largest, however I wanted to at least figure out the logic. The big focus in this experiment is efficiency.
 
+**Testing** means to divide the testNumber by a series of numbers (i.e. 100/2, 100/3, 100/4...). If the remainder is 0, it is divisible. If divisible by any number excluding 1 and itself, it is composite. Otherwise, it is prime. Assume numbers are real and positive only.
 
-The easiest way to approach this problem is to take a testNumber and divide it by all of the numbers that are greater than 1, but less than itself. This will be accurate, however, it is the slowest it could possibly be.
+The easiest approach is to test every number greater than 1 but less than the testNumber. Accurate but slow.
 
-The easiest numbers to rule out are even numbers except for 2. So, the testNumber should start on an odd number and add 2 each time to ensure it is always odd. In this option, 2 would need to be added to the array of primes before the project begins as if the number is odd, it does not need to be tested with 2. This is more efficeint since it rules out half the numbers.
+The easiest numbers to rule out are evens except 2. Start at an odd number and add 2 each time. Add 2 to primes upfront. This rules out half the numbers.
 
-Up until now, numbers are tested with every number, prime and composite, up to it except for 1, 2, and itself. This can be fixed using some mathematical logic. Factor trees can be used to turn a composite number into a multiplication of prime numbers.
-Example:
-    36
-2   *  18
-    3   *   6
-        2   *   3
-Therefore, 36 = 2 * 3 * 2 * 3. This means that when testing for prime numbers, the testNumber only needs to be divided by the prime numbers up to it except for 1, 2, and possibly itself. This drastically improves efficiency.
+But testing every number is still slow. Use factor trees: 36 = 2 * 3 * 2 * 3. If testNumber is divisible by any composite, it is ALWAYS divisible by a smaller prime. So only test divisibility by primes up to sqrt(testNumber), not all numbers. This drastically improves efficiency.
 
-Since 2 was ruled out, the prime number that the testNumber is divided by must be less than half of the testNumber. This works because 2 has already been ruled out, fractions can not be used, and an exception for 1 has been created since all real numbers are divisible by 1. *This has not been implemented yet, but it is on my agenda. This will be saved under logicPart5.py before I merge it into findingPrimes.py*
+**Files:**
+- `finding_primes.py` - Main CLI app with prime finding, checking, factorization, and multiple algorithms.
+- `iterate_list.py` - Demonstrates basic list iteration with while loops.
+- `test_divisibility.py` - Shows nested loops to test one number against all divisors.
+- `find_primes_basic.py` - Basic prime finder using modulo to test divisibility.
+- `find_1000_primes.py` - Finds first 1000 primes using the algorithm.
+- `efficiency_notes.py` - Documents the sqrt optimization and prime-only testing.
+
+No external dependencies - uses only Python standard library. Compatible with Python 3.x. Run `python3 finding_primes.py --help` for usage options.
